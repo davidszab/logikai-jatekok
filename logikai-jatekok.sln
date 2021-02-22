@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logikai-jatekok", "logikai-jatekok.csproj", "{3ADD5A5B-76B0-470A-A62D-3BF6A911FA5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3ADD5A5B-76B0-470A-A62D-3BF6A911FA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADD5A5B-76B0-470A-A62D-3BF6A911FA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADD5A5B-76B0-470A-A62D-3BF6A911FA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADD5A5B-76B0-470A-A62D-3BF6A911FA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B8377F7-12B4-4CF5-BE12-CA1EB7C428EF}
+	EndGlobalSection
+EndGlobal
