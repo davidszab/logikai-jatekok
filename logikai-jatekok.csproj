@@ -55,6 +55,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mastermind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mastermind.Designer.cs">
+      <DependentUpon>Mastermind.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameDatabase.cs" />
     <Compile Include="GameTypes.cs" />
     <Compile Include="Program.cs" />
