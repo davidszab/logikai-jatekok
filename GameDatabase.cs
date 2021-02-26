@@ -129,10 +129,9 @@ namespace logikai_jatekok
         /// <param name="player">username</param>
         /// <param name="game">hangman / mastermind / minesweeper</param>
         /// <param name="score">number of points</param>
-        public void SaveData(string player, string game, int score)
+        public void SaveData(string player, GameTypes gameType, int score)
         {
-            int game_id = game == "hangman" ? 1 : game == "mastermind" ? 2 : game == "minesweeper" ? 3 : 0;
-            if (game_id == 0) throw new ArgumentException($"There is no table called '{game}' in the database!");
+            int game_id = (int)gameType;
 
             int player_id = Convert.ToInt32(SingleValue($"SELECT player.player_id FROM player WHERE player.name = '{player}'"));
             if (player_id == 0) throw new ArgumentException($"There is no player.name called '{player}' in the database!");
