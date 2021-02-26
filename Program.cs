@@ -16,7 +16,7 @@ namespace logikai_jatekok
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Mastermind());
+            Application.Run(new MinesweeperForm());
         }
     }
 }

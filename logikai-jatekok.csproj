@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Field.cs" />
     <Compile Include="Akasztófa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +63,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameDatabase.cs" />
+    <Compile Include="MinesweeperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MinesweeperForm.Designer.cs">
+      <DependentUpon>MinesweeperForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameTypes.cs" />
     <Compile Include="Mastermind.cs">
       <SubType>Form</SubType>
