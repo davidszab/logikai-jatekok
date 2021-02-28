@@ -12,5 +12,6 @@ namespace logikai_jatekok
         public Panel panel;
         public int minesNearby; // -1 if the Field is mine
         public bool isRevealed;
+        public bool isFlaged;
     }
 }
