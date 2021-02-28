@@ -1,4 +1,4 @@
-Ôªøusing System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,29 +11,29 @@ using System.IO;
 
 namespace logikai_jatekok
 {
-    public partial class Akaszt√≥fa : Form
+    public partial class AkasztÛfa : Form
     {
-        public Akaszt√≥fa()
+        public AkasztÛfa()
         {
             InitializeComponent();
-            Beolvas√°s();
-            Sz√≥Kiv√°laszt();
-            GombHozz√°ad();
-            LabelsHozz√°ad();
+            Beolvas·s();
+            SzÛKiv·laszt();
+            GombHozz·ad();
+            LabelsHozz·ad();
         }
         public string[] szavak;
-        public string[] alapbetuk = {"A","√Å","B","C","D","E","√â","F","G","H","I","√ç","J","K","L","M","N","O",
-            "√ì","√ñ","≈ê","P","Q","R","S","T","U","√ö","√ú","≈∞","V","W","X","Y","Z"};
+        public string[] alapbetuk = {"A","¡","B","C","D","E","…","F","G","H","I","Õ","J","K","L","M","N","O",
+            "”","÷","’","P","Q","R","S","T","U","⁄","‹","€","V","W","X","Y","Z"};
         public string aktszo;
         public List<Label> labels = new List<Label>();
         public Random random = new Random();
         public enum HangState
         {
-            √úres, Alap, F√ºggOszlop, VizOszlop, K√∂t√©l, Fej, Test, BalKar, BalK√©z, JobbKar, JobbK√©z, BalL√°b, Jobbl√°b
+            ‹res, Alap, F¸ggOszlop, VizOszlop, KˆtÈl, Fej, Test, BalKar, BalKÈz, JobbKar, JobbKÈz, BalL·b, Jobbl·b
         }
-        public HangState AktHangState = HangState.√úres;
-        public HangState HangStateSize = HangState.Jobbl√°b;
-        public void Beolvas√°s()
+        public HangState AktHangState = HangState.‹res;
+        public HangState HangStateSize = HangState.Jobbl·b;
+        public void Beolvas·s()
         {
             string[] sorok = File.ReadAllLines("szavak.txt");
             szavak = new string[sorok.Length];
@@ -42,12 +42,12 @@ namespace logikai_jatekok
                 szavak[i] = sorok[i].ToUpper();
             }
         }
-        private void Sz√≥Kiv√°laszt()
+        private void SzÛKiv·laszt()
         {
             int r = random.Next(0, szavak.Length);
             aktszo = szavak[r];
         }
-        private void GombHozz√°ad()
+        private void GombHozz·ad()
         {
             for (int i = 0; i < alapbetuk.Length; i++)
             {
@@ -60,7 +60,7 @@ namespace logikai_jatekok
                 b.Click += B_Click;
             }
         }
-        private void LabelsHozz√°ad()
+        private void LabelsHozz·ad()
         {
             gb_kitalalndo.Controls.Clear();
             labels.Clear();
@@ -76,8 +76,8 @@ namespace logikai_jatekok
                 l.BringToFront();
                 labels.Add(l);
             }
-            l_szohossz.Text = "A sz√≥ hossza: " + Convert.ToString(hossz);
-            l_hibalehetoseg.Text = "Hibalehet≈ës√©g: " + Convert.ToInt32(HangStateSize);
+            l_szohossz.Text = "A szÛ hossza: " + Convert.ToString(hossz);
+            l_hibalehetoseg.Text = "HibalehetısÈg: " + Convert.ToInt32(HangStateSize);
         }
         private void B_Click(object sender, EventArgs e)
         {
@@ -102,39 +102,39 @@ namespace logikai_jatekok
                 {
                     return;
                 }
-                l_info.Text = "Gratul√°lok! Nyert√©l! :)";
+                l_info.Text = "Gratul·lok! NyertÈl! :)";
                 l_info.ForeColor = Color.DarkGreen;
                 flp_buttons.Enabled = false;
                 flp_word.Enabled = false;
             }
             else
             {
-                l_info.Text = "Nem j√≥!";
+                l_info.Text = "Nem jÛ!";
                 l_info.ForeColor = Color.DarkRed;
                 Graphics g = this.CreateGraphics();
                 Pen p = new Pen(Color.DarkBlue, 5);
                 Pen v = new Pen(Color.DarkBlue, 2);
-                if (AktHangState != HangState.Jobbl√°b)
+                if (AktHangState != HangState.Jobbl·b)
                 {
                     AktHangState++;
-                    if (AktHangState >= HangState.Alap) 
+                    if (AktHangState >= HangState.Alap)
                     {
                         //Alap
                         g.DrawLine(p, 600, 350, 775, 350);
                     }
-                    if (AktHangState >= HangState.F√ºggOszlop)
+                    if (AktHangState >= HangState.F¸ggOszlop)
                     {
-                        //F√ºgg≈ëleges oszlop
+                        //F¸ggıleges oszlop
                         g.DrawLine(p, 750, 350, 750, 50);
                     }
                     if (AktHangState >= HangState.VizOszlop)
                     {
-                        //V√≠zszintes oszlop
+                        //VÌzszintes oszlop
                         g.DrawLine(p, 750, 50, 625, 50);
                     }
-                    if (AktHangState >= HangState.K√∂t√©l)
+                    if (AktHangState >= HangState.KˆtÈl)
                     {
-                        //K√∂t√©l
+                        //KˆtÈl
                         g.DrawLine(p, 650, 50, 650, 100);
                     }
                     if (AktHangState >= HangState.Fej)
@@ -158,9 +158,9 @@ namespace logikai_jatekok
                         //Bal kar
                         g.DrawLine(p, 650, 135, 630, 190);
                     }
-                    if (AktHangState >= HangState.BalK√©z)
+                    if (AktHangState >= HangState.BalKÈz)
                     {
-                        //Bal k√©z
+                        //Bal kÈz
                         Rectangle bkez = new Rectangle(627, 190, 5, 5);
                         g.DrawEllipse(p, bkez);
                     }
@@ -169,28 +169,28 @@ namespace logikai_jatekok
                         //Jobb kar
                         g.DrawLine(p, 650, 135, 670, 190);
                     }
-                    if (AktHangState >= HangState.JobbK√©z)
+                    if (AktHangState >= HangState.JobbKÈz)
                     {
-                        //Jobb k√©z
+                        //Jobb kÈz
                         Rectangle jkez = new Rectangle(668, 190, 5, 5);
                         g.DrawEllipse(p, jkez);
                     }
-                    if (AktHangState >= HangState.BalL√°b)
+                    if (AktHangState >= HangState.BalL·b)
                     {
-                        //Bal l√°b
+                        //Bal l·b
                         g.DrawLine(p, 650, 208, 630, 270);
                     }
-                    if (AktHangState >= HangState.Jobbl√°b)
+                    if (AktHangState >= HangState.Jobbl·b)
                     {
-                        //Jobb l√°b
+                        //Jobb l·b
                         g.DrawLine(p, 650, 208, 670, 270);
                     }
                 }
-                l_hibalehetoseg.Text = "Hibalehet≈ës√©g: " + Convert.ToInt32(HangStateSize - AktHangState);
+                l_hibalehetoseg.Text = "HibalehetısÈg: " + Convert.ToInt32(HangStateSize - AktHangState);
                 tb_rosszvalaszok.Text += betuclicked.ToString() + ", ";
-                if (AktHangState == HangState.Jobbl√°b)
+                if (AktHangState == HangState.Jobbl·b)
                 {
-                    l_info.Text = "Vesztett√©l!";
+                    l_info.Text = "VesztettÈl!";
                     l_info.ForeColor = Color.DarkRed;
                     flp_buttons.Enabled = false;
                     flp_word.Enabled = false;
@@ -213,13 +213,13 @@ namespace logikai_jatekok
             l_info.Text = " - ";
             tb_rosszvalaszok.Clear();
             flp_buttons.Enabled = true;
-            HangStateSize = HangState.Jobbl√°b;
-            AktHangState = HangState.√úres;
+            HangStateSize = HangState.Jobbl·b;
+            AktHangState = HangState.‹res;
             //p_hangman.Controls.Clear();
             this.Invalidate();
-            Sz√≥Kiv√°laszt();
-            GombHozz√°ad();
-            LabelsHozz√°ad();
+            SzÛKiv·laszt();
+            GombHozz·ad();
+            LabelsHozz·ad();
         }
         private void b_kilepes_Click(object sender, EventArgs e)
         {
