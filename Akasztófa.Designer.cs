@@ -82,6 +82,7 @@
             this.p_hangman.Name = "p_hangman";
             this.p_hangman.Size = new System.Drawing.Size(219, 340);
             this.p_hangman.TabIndex = 2;
+            this.p_hangman.Paint += new System.Windows.Forms.PaintEventHandler(this.p_hangman_Paint);
             // 
             // l_hibalehetoseg
             // 

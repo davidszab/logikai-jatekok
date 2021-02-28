@@ -143,8 +143,8 @@ namespace logikai_jatekok
             if (AktHangState >= HangState.Alap)
             {
                 //Alap
-                g.DrawLine(p, 250, 300, 50, 300);
-            }
+                g.DrawLine(p, 250, 300, 50, 300);          
+            }      
             if (AktHangState >= HangState.FüggOszlop)
             {
                 //Függőleges oszlop
