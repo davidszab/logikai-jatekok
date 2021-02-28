@@ -111,9 +111,80 @@ namespace logikai_jatekok
             {
                 l_info.Text = "Nem jó!";
                 l_info.ForeColor = Color.DarkRed;
+                Graphics g = this.CreateGraphics();
+                Pen p = new Pen(Color.DarkBlue, 5);
+                Pen v = new Pen(Color.DarkBlue, 2);
                 if (AktHangState != HangState.Jobbláb)
                 {
                     AktHangState++;
+                    if (AktHangState >= HangState.Alap) 
+                    {
+                        //Alap
+                        g.DrawLine(p, 600, 350, 775, 350);
+                    }
+                    if (AktHangState >= HangState.FüggOszlop)
+                    {
+                        //Függőleges oszlop
+                        g.DrawLine(p, 750, 350, 750, 50);
+                    }
+                    if (AktHangState >= HangState.VizOszlop)
+                    {
+                        //Vízszintes oszlop
+                        g.DrawLine(p, 750, 50, 625, 50);
+                    }
+                    if (AktHangState >= HangState.Kötél)
+                    {
+                        //Kötél
+                        g.DrawLine(p, 650, 50, 650, 100);
+                    }
+                    if (AktHangState >= HangState.Fej)
+                    {
+                        //Fej
+                        Rectangle fej = new Rectangle(633, 100, 35, 35);
+                        g.DrawEllipse(p, fej);
+                        Rectangle szem1 = new Rectangle(645, 115, 1, 1);
+                        g.DrawEllipse(p, szem1);
+                        Rectangle szem2 = new Rectangle(655, 115, 1, 1);
+                        g.DrawEllipse(p, szem2);
+                        g.DrawLine(v, 645, 125, 656, 125);
+                    }
+                    if (AktHangState >= HangState.Test)
+                    {
+                        //Test
+                        g.DrawLine(p, 650, 135, 650, 210);
+                    }
+                    if (AktHangState >= HangState.BalKar)
+                    {
+                        //Bal kar
+                        g.DrawLine(p, 650, 135, 630, 190);
+                    }
+                    if (AktHangState >= HangState.BalKéz)
+                    {
+                        //Bal kéz
+                        Rectangle bkez = new Rectangle(627, 190, 5, 5);
+                        g.DrawEllipse(p, bkez);
+                    }
+                    if (AktHangState >= HangState.JobbKar)
+                    {
+                        //Jobb kar
+                        g.DrawLine(p, 650, 135, 670, 190);
+                    }
+                    if (AktHangState >= HangState.JobbKéz)
+                    {
+                        //Jobb kéz
+                        Rectangle jkez = new Rectangle(668, 190, 5, 5);
+                        g.DrawEllipse(p, jkez);
+                    }
+                    if (AktHangState >= HangState.BalLáb)
+                    {
+                        //Bal láb
+                        g.DrawLine(p, 650, 208, 630, 270);
+                    }
+                    if (AktHangState >= HangState.Jobbláb)
+                    {
+                        //Jobb láb
+                        g.DrawLine(p, 650, 208, 670, 270);
+                    }
                 }
                 l_hibalehetoseg.Text = "Hibalehetőség: " + Convert.ToInt32(HangStateSize - AktHangState);
                 tb_rosszvalaszok.Text += betuclicked.ToString() + ", ";
@@ -136,75 +207,6 @@ namespace logikai_jatekok
                 }
             }
         }
-        private void p_hangman_Paint(object sender, PaintEventArgs e)
-        {
-            Pen p = new Pen(Color.DarkBlue, 5);
-            Graphics g = e.Graphics;
-            if (AktHangState >= HangState.Alap)
-            {
-                //Alap
-                g.DrawLine(p, 250, 300, 50, 300);          
-            }      
-            if (AktHangState >= HangState.FüggOszlop)
-            {
-                //Függőleges oszlop
-                g.DrawLine(p, 200, 300, 200, 25);
-            }
-            if (AktHangState >= HangState.VizOszlop)
-            {
-                //Vízszintes oszlop
-                g.DrawLine(p, 205, 25, 80, 25);
-            }
-            if (AktHangState >= HangState.Kötél)
-            {
-                //Kötél
-                g.DrawLine(p, 100, 80, 100, 25);
-            }
-            if (AktHangState >= HangState.Fej)
-            {
-                //Fej
-                Rectangle fej = new Rectangle(82, 80, 35, 35);
-                g.DrawEllipse(p, fej);
-            }
-            if (AktHangState >= HangState.Test)
-            {
-                //Test
-                g.DrawLine(p, 100, 117, 100, 190);
-            }
-            if (AktHangState >= HangState.BalKar)
-            {
-                //Bal kar
-                g.DrawLine(p, 100, 120, 75, 170);
-            }
-            if (AktHangState >= HangState.BalKéz)
-            {
-                //Bal kéz
-                Rectangle bkez = new Rectangle(70, 170, 5, 5);
-                g.DrawEllipse(p, bkez);
-            }
-            if (AktHangState >= HangState.JobbKar)
-            {
-                //Jobb kar
-                g.DrawLine(p, 100, 120, 125, 170);
-            }
-            if (AktHangState >= HangState.JobbKéz)
-            {
-                //Jobb kéz
-                Rectangle jkez = new Rectangle(125, 170, 5, 5);
-                g.DrawEllipse(p, jkez);
-            }
-            if (AktHangState >= HangState.BalLáb)
-            {
-                //Bal láb
-                g.DrawLine(p, 100, 185, 80, 250);
-            }
-            if (AktHangState >= HangState.Jobbláb)
-            {
-                //Jobb láb
-                g.DrawLine(p, 100, 185, 120, 250);
-            }
-            l_proba.Text = "Próba: " + AktHangState;
-        }
         private void b_ujjatek_Click(object sender, EventArgs e)
         {
             flp_buttons.Controls.Clear();
@@ -213,7 +215,8 @@ namespace logikai_jatekok
             flp_buttons.Enabled = true;
             HangStateSize = HangState.Jobbláb;
             AktHangState = HangState.Üres;
-            p_hangman.Controls.Clear();
+            //p_hangman.Controls.Clear();
+            this.Invalidate();
             SzóKiválaszt();
             GombHozzáad();
             LabelsHozzáad();

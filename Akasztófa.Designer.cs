@@ -32,12 +32,10 @@
             this.gb_kitalalndo = new System.Windows.Forms.GroupBox();
             this.flp_buttons = new System.Windows.Forms.FlowLayoutPanel();
             this.l_szohossz = new System.Windows.Forms.Label();
-            this.p_hangman = new System.Windows.Forms.Panel();
             this.l_hibalehetoseg = new System.Windows.Forms.Label();
             this.l_info = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_rosszvalaszok = new System.Windows.Forms.TextBox();
-            this.l_proba = new System.Windows.Forms.Label();
             this.b_ujjatek = new System.Windows.Forms.Button();
             this.b_kilepes = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -76,14 +74,6 @@
             this.l_szohossz.TabIndex = 0;
             this.l_szohossz.Text = "label1";
             // 
-            // p_hangman
-            // 
-            this.p_hangman.Location = new System.Drawing.Point(557, 39);
-            this.p_hangman.Name = "p_hangman";
-            this.p_hangman.Size = new System.Drawing.Size(219, 340);
-            this.p_hangman.TabIndex = 2;
-            this.p_hangman.Paint += new System.Windows.Forms.PaintEventHandler(this.p_hangman_Paint);
-            // 
             // l_hibalehetoseg
             // 
             this.l_hibalehetoseg.AutoSize = true;
@@ -100,9 +90,9 @@
             this.l_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.l_info.Location = new System.Drawing.Point(12, 225);
             this.l_info.Name = "l_info";
-            this.l_info.Size = new System.Drawing.Size(46, 18);
+            this.l_info.Size = new System.Drawing.Size(21, 18);
             this.l_info.TabIndex = 4;
-            this.l_info.Text = "label1";
+            this.l_info.Text = " - ";
             // 
             // label1
             // 
@@ -122,16 +112,6 @@
             this.tb_rosszvalaszok.Name = "tb_rosszvalaszok";
             this.tb_rosszvalaszok.Size = new System.Drawing.Size(125, 38);
             this.tb_rosszvalaszok.TabIndex = 6;
-            // 
-            // l_proba
-            // 
-            this.l_proba.AutoSize = true;
-            this.l_proba.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.l_proba.Location = new System.Drawing.Point(475, 382);
-            this.l_proba.Name = "l_proba";
-            this.l_proba.Size = new System.Drawing.Size(46, 18);
-            this.l_proba.TabIndex = 7;
-            this.l_proba.Text = "label1";
             // 
             // b_ujjatek
             // 
@@ -164,12 +144,10 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.b_kilepes);
             this.Controls.Add(this.b_ujjatek);
-            this.Controls.Add(this.l_proba);
             this.Controls.Add(this.tb_rosszvalaszok);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.l_info);
             this.Controls.Add(this.l_hibalehetoseg);
-            this.Controls.Add(this.p_hangman);
             this.Controls.Add(this.l_szohossz);
             this.Controls.Add(this.flp_buttons);
             this.Controls.Add(this.gb_kitalalndo);
@@ -187,12 +165,10 @@
         private System.Windows.Forms.GroupBox gb_kitalalndo;
         private System.Windows.Forms.FlowLayoutPanel flp_buttons;
         private System.Windows.Forms.Label l_szohossz;
-        private System.Windows.Forms.Panel p_hangman;
         private System.Windows.Forms.Label l_hibalehetoseg;
         private System.Windows.Forms.Label l_info;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_rosszvalaszok;
-        private System.Windows.Forms.Label l_proba;
         private System.Windows.Forms.Button b_ujjatek;
         private System.Windows.Forms.Button b_kilepes;
     }
