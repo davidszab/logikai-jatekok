@@ -26,6 +26,7 @@ namespace logikai_jatekok
             "Ó","Ö","Õ","P","Q","R","S","T","U","Ú","Ü","Û","V","W","X","Y","Z"};
         public string aktszo;
         public List<Label> labels = new List<Label>();
+        public List<string> szerepelt = new List<string>();
         public Random random = new Random();
         public enum HangState
         {
@@ -46,6 +47,10 @@ namespace logikai_jatekok
         {
             int r = random.Next(0, szavak.Length);
             aktszo = szavak[r];
+            if (!szerepelt.Contains(aktszo))
+            {
+                szerepelt.Add(aktszo);
+            }
         }
         private void GombHozzáad()
         {
@@ -215,7 +220,6 @@ namespace logikai_jatekok
             flp_buttons.Enabled = true;
             HangStateSize = HangState.Jobbláb;
             AktHangState = HangState.Üres;
-            //p_hangman.Controls.Clear();
             this.Invalidate();
             SzóKiválaszt();
             GombHozzáad();
@@ -223,6 +227,7 @@ namespace logikai_jatekok
         }
         private void b_kilepes_Click(object sender, EventArgs e)
         {
+            szerepelt.Clear();
             this.Close();
         }
     }

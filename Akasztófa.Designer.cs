@@ -50,6 +50,7 @@
             // 
             // gb_kitalalndo
             // 
+            this.gb_kitalalndo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.gb_kitalalndo.Location = new System.Drawing.Point(12, 39);
             this.gb_kitalalndo.Name = "gb_kitalalndo";
             this.gb_kitalalndo.Size = new System.Drawing.Size(509, 100);
@@ -106,11 +107,14 @@
             // 
             // tb_rosszvalaszok
             // 
+            this.tb_rosszvalaszok.BackColor = System.Drawing.Color.White;
             this.tb_rosszvalaszok.Enabled = false;
+            this.tb_rosszvalaszok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tb_rosszvalaszok.ForeColor = System.Drawing.Color.Black;
             this.tb_rosszvalaszok.Location = new System.Drawing.Point(396, 166);
             this.tb_rosszvalaszok.Multiline = true;
             this.tb_rosszvalaszok.Name = "tb_rosszvalaszok";
-            this.tb_rosszvalaszok.Size = new System.Drawing.Size(125, 38);
+            this.tb_rosszvalaszok.Size = new System.Drawing.Size(125, 53);
             this.tb_rosszvalaszok.TabIndex = 6;
             // 
             // b_ujjatek
@@ -153,7 +157,7 @@
             this.Controls.Add(this.gb_kitalalndo);
             this.Controls.Add(this.flp_word);
             this.Name = "Akasztófa";
-            this.Text = "fl";
+            this.Text = "Akasztófa";
             this.ResumeLayout(false);
             this.PerformLayout();
 
