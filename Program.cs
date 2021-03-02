@@ -16,7 +16,8 @@ namespace logikai_jatekok
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Mastermind());
         }
+        static public int ablakIndex = 0;
     }
 }
