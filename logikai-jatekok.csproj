@@ -61,12 +61,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mastermind.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mastermind.Designer.cs">
-      <DependentUpon>Mastermind.cs</DependentUpon>
-    </Compile>
     <Compile Include="GameDatabase.cs" />
     <Compile Include="GameTypes.cs" />
     <Compile Include="Program.cs" />
@@ -85,7 +79,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,33 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_feher.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_fekete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_ismeretlen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_kek.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_lila.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_narancs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_piros.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_sarga.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\golyo_zold.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
