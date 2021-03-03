@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Akasztófa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akasztófa.Designer.cs">
+      <DependentUpon>Akasztófa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Mastermind.resx">
       <DependentUpon>Mastermind.cs</DependentUpon>
+    <EmbeddedResource Include="Akasztófa.resx">
+      <DependentUpon>Akasztófa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
