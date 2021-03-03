@@ -65,6 +65,9 @@
     <Compile Include="GameTypes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Mastermind.resx">
+      <DependentUpon>Mastermind.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Akasztófa.resx">
       <DependentUpon>Akasztófa.cs</DependentUpon>
     </EmbeddedResource>
