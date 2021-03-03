@@ -35,6 +35,7 @@
             this.lbRejtett = new System.Windows.Forms.Label();
             this.btnRejtettVissza = new System.Windows.Forms.Button();
             this.btnTorles = new System.Windows.Forms.Button();
+            this.fLP_ertekeles = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label1
@@ -88,12 +89,12 @@
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.tLP_szinek.Location = new System.Drawing.Point(721, 62);
+            this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
+            this.tLP_szinek.Location = new System.Drawing.Point(686, 62);
             this.tLP_szinek.Name = "tLP_szinek";
             this.tLP_szinek.RowCount = 1;
             this.tLP_szinek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tLP_szinek.Size = new System.Drawing.Size(279, 500);
+            this.tLP_szinek.Size = new System.Drawing.Size(314, 500);
             this.tLP_szinek.TabIndex = 7;
             // 
             // lbRejtett
@@ -126,11 +127,20 @@
             this.btnTorles.UseVisualStyleBackColor = true;
             this.btnTorles.Click += new System.EventHandler(this.btnTorles_Click);
             // 
+            // fLP_ertekeles
+            // 
+            this.fLP_ertekeles.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fLP_ertekeles.Location = new System.Drawing.Point(293, 62);
+            this.fLP_ertekeles.Name = "fLP_ertekeles";
+            this.fLP_ertekeles.Size = new System.Drawing.Size(209, 500);
+            this.fLP_ertekeles.TabIndex = 12;
+            // 
             // Mastermind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 641);
+            this.Controls.Add(this.fLP_ertekeles);
             this.Controls.Add(this.btnTorles);
             this.Controls.Add(this.btnRejtettVissza);
             this.Controls.Add(this.lbRejtett);
@@ -156,5 +166,6 @@
         private System.Windows.Forms.Label lbRejtett;
         private System.Windows.Forms.Button btnRejtettVissza;
         private System.Windows.Forms.Button btnTorles;
+        private System.Windows.Forms.FlowLayoutPanel fLP_ertekeles;
     }
 }

@@ -91,7 +91,6 @@ namespace logikai_jatekok
             {
                 kod.Add(szinek[index]);
             }
-            MessageBox.Show($"{kod[0].nev} {kod[1].nev} {kod[2].nev} {kod[3].nev}");
         }
         private void Mastermind_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -129,6 +128,35 @@ namespace logikai_jatekok
                 }
             }
         }
+        private TableLayoutPanel ertekeloMezo(int fekete, int feher)
+        {
+            TableLayoutPanel tabla = new TableLayoutPanel() { CellBorderStyle = TableLayoutPanelCellBorderStyle.Single, Height = 40, Width= 40 };
+            tabla.Margin = new Padding(0);
+            tabla.RowStyles.Clear();
+            tabla.ColumnStyles.Clear();
+            tabla.RowCount = 2;
+            tabla.AutoSize = false;
+            tabla.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            tabla.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            int oszlopSzam = (int)Math.Ceiling((double)(fekete+feher) / 2);
+            oszlopSzam = oszlopSzam < 2 ? 2 : oszlopSzam;
+            tabla.ColumnCount = oszlopSzam;
+            for (int i = 0; i < oszlopSzam; i++)
+            {
+                tabla.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            }
+            for (int i = 0; i < fekete; i++)
+            {
+                PictureBox golyo = new PictureBox() { Image = Properties.Resources.golyo_fekete, SizeMode = PictureBoxSizeMode.Zoom };
+                tabla.Controls.Add(golyo);
+            }
+            for (int i = 0; i < feher; i++)
+            {
+                PictureBox golyo = new PictureBox() { Image = Properties.Resources.golyo_feher, SizeMode = PictureBoxSizeMode.Zoom };
+                tabla.Controls.Add(golyo);
+            }
+            return tabla;
+        }
         private void ertekeles()
         {
             int fekete = 0;
@@ -141,9 +169,13 @@ namespace logikai_jatekok
                 else if (kod.Contains(probalkozas[i]))
                     feher++;
             }
-            MessageBox.Show($"fekete: {fekete}, fehér: {feher}");
-            if (probalkozasok.Count < 10)
+            fLP_ertekeles.Controls.Add(ertekeloMezo(fekete, feher));
+            if (fekete == 4)
+                MessageBox.Show("Gratulálok, teljesítetted a játékot!");
+            else if (probalkozasok.Count < 10)
                 probalkozasok.Add(new List<Szin>());
+            else
+                MessageBox.Show($"Játék vége! A kód: {kod[0].nev}, {kod[1].nev}, {kod[2].nev}, {kod[3].nev}");
         }
         public Mastermind()
         {
