@@ -16,30 +16,36 @@ namespace logikai_jatekok
         static int width = 18; static int height = 14;
         static int mineChance = 4; // chance-> 1 : minechance (def. 3)
         static int nonMineRadius = 4;
-        string player;
         int revealedOnDefault = 0;
+        int score = 0;
+
+        //(42, 145, 42); //green1
+        //(51, 181, 51); //green2
+        //(181, 137, 83); //brown1
+        //(166, 126, 78); //brown2
 
         Field[,] fields = new Field[width, height];
 
-        Label score = new Label();
+        Label scoreLb = new Label();
 
         bool isFirstClick = true;
         bool isGameOver = false;
+        public bool playagain = false;
 
-        public MinesweeperForm(string player)
+        public MinesweeperForm()
         {
-            this.player = player;
+            this.Icon = Properties.Resources.flag;
 
             InitializeComponent();
 
             SetUpFields();
 
             #region --scorelabel
-            score.AutoSize = true;
-            score.Location = new Point(607,80);
-            score.Text = " Pontok: 0p";
-            score.Font = new Font("Lucida Sans Unicode", 14);
-            Controls.Add(score);
+            scoreLb.AutoSize = true;
+            scoreLb.Location = new Point(607,80);
+            scoreLb.Text = " Pontok: 0p";
+            scoreLb.Font = new Font("Lucida Sans Unicode", 14);
+            Controls.Add(scoreLb);
             #endregion
 
             SetUpInfo();
@@ -146,8 +152,8 @@ namespace logikai_jatekok
                     if (fields[x, y].isRevealed && fields[x, y].minesNearby != -1) revealeds++;
                 }
             }
-
-            score.Text = $" Pontok: {revealeds-revealedOnDefault}p";
+            score = revealeds - revealedOnDefault;
+            scoreLb.Text = $" Pontok: {score}p";
         }
         
         private void FlagNonRevealedField(int x, int y)
@@ -156,8 +162,8 @@ namespace logikai_jatekok
             {
                 fields[x, y].panel.BackColor = Color.Transparent;
 
-                if ((x + y) % 2 == 0) fields[x, y].panel.BackgroundImage = new Bitmap(@"img\flag0.png");
-                else fields[x, y].panel.BackgroundImage = new Bitmap(@"img\flag1.png");
+                if ((x + y) % 2 == 0) fields[x, y].panel.BackgroundImage = Properties.Resources.flag0;
+                else fields[x, y].panel.BackgroundImage = Properties.Resources.flag1;
 
                 fields[x, y].panel.BackgroundImageLayout = ImageLayout.Stretch;
                 fields[x, y].isFlaged = true;
@@ -186,7 +192,7 @@ namespace logikai_jatekok
                 {
                     for (int j = -1; j < 2; j++)
                     {
-                        if (i + x < width && j + y < height && i + x > -1 && j + y > -1 && i != j)
+                        if (i + x < width && j + y < height && i + x > -1 && j + y > -1 && !(i==0 && j==0))
                         {
                             if (!fields[i + x, j + y].isRevealed)
                             {
@@ -274,7 +280,7 @@ namespace logikai_jatekok
 
                 string[] coords = mines[ran].panel.Controls[0].Name.Split('.');
 
-                await Task.Delay(450);
+                await Task.Delay(500);
 
                 RevealMine(int.Parse(coords[0]), int.Parse(coords[1]));
 
@@ -288,7 +294,7 @@ namespace logikai_jatekok
             {
                 fields[x, y].panel.BackColor = Color.Transparent;
 
-                fields[x, y].panel.BackgroundImage = new Bitmap(@"img\flag2.png");
+                fields[x, y].panel.BackgroundImage = Properties.Resources.flag2;
 
                 fields[x, y].panel.BackgroundImageLayout = ImageLayout.Stretch;
             }
@@ -393,18 +399,30 @@ namespace logikai_jatekok
 
         private async Task Gameover()
         {
+            SaveScore();
+            DisableBoard();
             GameOverLabel();
             ExitButton();
-            RestartButton();
+            PlayAgainButton();
 
             isGameOver = true;
             ExplodeMines();
         }
 
+        private async Task DisableBoard()
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    fields[x, y].panel.Controls[0].Enabled = false;
+                }
+            }
+        }
+
         private async Task SaveScore()
         {
-            GameDatabase database = new GameDatabase("datas/data.txt", true);
-            database.AddPlayer(player);
+            Program.database.SaveData(Program.player, GameTypes.minesweeper, score);
         }
 
         private void GameOverLabel()
@@ -421,7 +439,7 @@ namespace logikai_jatekok
         private void ExitButton()
         {
             Button exit = new Button();
-            exit.Location = new Point(570, 230);
+            exit.Location = new Point(580, 230);
             exit.Font = new Font("Ariel", 15);
             exit.Text = "Kilépés";
             exit.ForeColor = Color.DarkRed;
@@ -431,28 +449,27 @@ namespace logikai_jatekok
             Controls.Add(exit);
         }
 
-        private void RestartButton()
-        {
-            Button rest = new Button();
-            rest.Location = new Point(700, 230);
-            rest.Font = new Font("Ariel", 15);
-            rest.Text = "Újra";
-            rest.ForeColor = Color.DarkRed;
-            rest.Padding = new Padding(5);
-            rest.Click += new EventHandler(RestartButton_Click);
-            rest.AutoSize = true;
-            Controls.Add(rest);
-        }
-
         private void ExitButton_Click(object sender, EventArgs args)
         {
             this.Close();
         }
 
-        private void RestartButton_Click(object sender, EventArgs args)
+        private void PlayAgainButton()
         {
-            this.Visible = false;
-            this.ShowDialog(new MinesweeperForm(player));
+            Button againB = new Button();
+            againB.Location = new Point(700, 230);
+            againB.Font = new Font("Ariel", 15);
+            againB.Text = "Újra";
+            againB.ForeColor = Color.DarkRed;
+            againB.Padding = new Padding(5);
+            againB.Click += new EventHandler(PlayAgainButton_Click);
+            againB.AutoSize = true;
+            Controls.Add(againB);
+        }
+
+        private void PlayAgainButton_Click(object sender, EventArgs args)
+        {
+            playagain = true;
             this.Close();
         }
     }

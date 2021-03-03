@@ -8,6 +8,8 @@ namespace logikai_jatekok
 {
     static class Program
     {
+        static public string player = "Balint";
+        static public GameDatabase database = new GameDatabase("datas/data.txt", false);
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,15 @@ namespace logikai_jatekok
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MinesweeperForm("Balint"));
+
+            bool playagain = true;
+            while (playagain)
+            {
+                MinesweeperForm minesweeper = new MinesweeperForm();
+                Application.Run(minesweeper);
+
+                playagain = minesweeper.playagain;
+            }
         }
     }
 }

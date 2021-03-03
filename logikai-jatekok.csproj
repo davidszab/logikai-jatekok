@@ -36,6 +36,7 @@
     <Reference Include="MySql.Data">
       <HintPath>mysql\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -83,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,6 +98,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
