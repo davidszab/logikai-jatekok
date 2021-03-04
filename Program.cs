@@ -9,7 +9,7 @@ namespace logikai_jatekok
     static class Program
     {
         static public string player;
-        static public Windows windowIndex = Windows.MainWindow;
+        static public Windows windowIndex = Windows.MastermindWindow;
         static public GameDatabase database;
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace logikai_jatekok
                 switch (windowIndex)
                 {
                     case Windows.MainWindow:
-                        Application.Run(new Form1());
+                        //Application.Run(new MainMenuForm());
                         break;
 
                     case Windows.HangmanWindow:
@@ -40,7 +40,7 @@ namespace logikai_jatekok
                         break;
 
                     case Windows.MinesweeperWindow:
-                        //Application.Run(new mine);
+                        Application.Run(new MinesweeperForm());
                         windowIndex = Windows.MainWindow;
                         break;
                 }
