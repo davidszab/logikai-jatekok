@@ -36,6 +36,7 @@
     <Reference Include="MySql.Data">
       <HintPath>mysql\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Field.cs" />
     <Compile Include="Akasztófa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +64,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameDatabase.cs" />
+    <Compile Include="MinesweeperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MinesweeperForm.Designer.cs">
+      <DependentUpon>MinesweeperForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameTypes.cs" />
     <Compile Include="Mastermind.cs">
       <SubType>Form</SubType>
@@ -76,8 +84,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -88,6 +96,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -96,6 +109,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\flag2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\golyo_feher.png" />
@@ -120,6 +145,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\golyo_zold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
