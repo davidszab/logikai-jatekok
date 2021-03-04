@@ -11,6 +11,7 @@ namespace logikai_jatekok
         static public string player;
         static public Windows windowIndex = Windows.MainWindow;
         static public GameDatabase database;
+        static public bool runProgram = true;
 
         /// <summary>
         /// The main entry point for the application.
@@ -21,12 +22,14 @@ namespace logikai_jatekok
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            while (true)
+            do
             {
                 switch (windowIndex)
                 {
                     case Windows.MainWindow:
-                        //Application.Run(new MainMenuForm());
+                        //Application.Run(new MainMenuForm()); 
+                        //MainMenuForm belepesnel Windows.CloseWindows-ra allitja a windowsIndex-et
+                        //ha a felhasznalo valaszt jatekot akkor peddig a valasztott index-re csereli
                         break;
 
                     case Windows.HangmanWindow:
@@ -43,8 +46,13 @@ namespace logikai_jatekok
                         Application.Run(new MinesweeperForm());
                         windowIndex = Windows.MainWindow;
                         break;
+
+                    case Windows.CloseWindows:
+                        runProgram = false;
+                        break;
                 }
-            }
+
+            } while (runProgram);
         }
     }
 }

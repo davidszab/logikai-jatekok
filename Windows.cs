@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace logikai_jatekok
 {
-    enum Windows { MainWindow, HangmanWindow, MastermindWindow, MinesweeperWindow};
+    enum Windows { MainWindow, HangmanWindow, MastermindWindow, MinesweeperWindow, CloseWindows};
 }
