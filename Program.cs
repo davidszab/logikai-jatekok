@@ -9,7 +9,7 @@ namespace logikai_jatekok
     static class Program
     {
         static public string player;
-        static public Windows windowIndex = Windows.MastermindWindow;
+        static public Windows windowIndex = Windows.MainWindow;
         static public GameDatabase database;
 
         /// <summary>
