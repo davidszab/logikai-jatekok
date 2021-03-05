@@ -47,6 +47,11 @@ namespace logikai_jatekok
                         windowIndex = Windows.MainWindow;
                         break;
 
+                    case Windows.StatisticsWindow:
+                        //Application.Run(new StatisticsForm());
+                        windowIndex = Windows.MainWindow;
+                        break;
+
                     case Windows.CloseWindows:
                         runProgram = false;
                         break;
