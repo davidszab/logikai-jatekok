@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows.cs" />
     <EmbeddedResource Include="Akasztófa.resx">
       <DependentUpon>Akasztófa.cs</DependentUpon>
     </EmbeddedResource>
