@@ -95,6 +95,9 @@
     <EmbeddedResource Include="Akasztófa.resx">
       <DependentUpon>Akasztófa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mastermind.resx">
+      <DependentUpon>Mastermind.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Főmenü.resx">
       <DependentUpon>Főmenü.cs</DependentUpon>
     </EmbeddedResource>
