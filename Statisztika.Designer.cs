@@ -51,6 +51,7 @@ namespace logikai_jatekok
             this.rBKepernyo = new System.Windows.Forms.RadioButton();
             this.rBHtml = new System.Windows.Forms.RadioButton();
             this.btnStart = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.fLP_fo.SuspendLayout();
@@ -59,6 +60,7 @@ namespace logikai_jatekok
             this.fLP_cel.SuspendLayout();
             this.fLP_output.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -295,11 +297,25 @@ namespace logikai_jatekok
             this.btnStart.Text = "Lekérdezés!";
             this.btnStart.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(18, 339);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(725, 357);
+            this.dataGridView1.TabIndex = 7;
+            // 
             // Statisztika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 708);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.fLP_fo);
             this.Controls.Add(this.label1);
             this.Name = "Statisztika";
@@ -319,6 +335,7 @@ namespace logikai_jatekok
             this.fLP_output.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +365,6 @@ namespace logikai_jatekok
         private System.Windows.Forms.RadioButton rBKepernyo;
         private System.Windows.Forms.RadioButton rBHtml;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

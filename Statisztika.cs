@@ -68,6 +68,28 @@ namespace logikai_jatekok
             else if (rBHtml.Checked)
                 kimenet = Kimenet.HTML;
         }
+        private string lekerdezesKeszito()
+        {
+            if(lekerdezesAlap == LekerdezesAlap.Jatek)
+            {
+                if (szures == Szures.Osszes)
+                    return $"SELECT name, points FROM logicgames.score INNER JOIN player ON score.player_id = player.player_id WHERE game_id = 1;";
+                if (szures == Szures.Legjobb)
+                    return $"SELECT name, MAX(points) FROM logicgames.score INNER JOIN player ON score.player_id = player.player_id WHERE game_id = 1 GROUP BY name ORDER BY 2 DESC;";
+            }
+            if(lekerdezesAlap == LekerdezesAlap.Jatekos)
+            {
+                if(szures == Szures.Osszes)
+                    return $"SELECT game_id, points FROM score INNER JOIN player ON score.player_id = player.player_id WHERE name = \"Játékos 1\";";
+                if (szures == Szures.Legjobb)
+                    return $"SELECT game_id, MAX(points) FROM score INNER JOIN player ON player.player_id = score.player_id WHERE player.name = \"Játékos 5\" GROUP BY game_id ORDER BY game_id;";
+            }
+            if(lekerdezesAlap == LekerdezesAlap.Rekord)
+            {
+                return "SELECT score.game_id, name, points FROM logicgames.score INNER JOIN(SELECT score.game_id, MAX(score.points) max_points FROM logicgames.score GROUP BY score.game_id) m ON m.max_points = score.points INNER JOIN player ON player.player_id = score.player_id ORDER BY score.game_id";
+            }
+            return "";
+        }
         public Statisztika()
         {
             InitializeComponent();
