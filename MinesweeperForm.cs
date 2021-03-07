@@ -399,7 +399,7 @@ namespace logikai_jatekok
 
         private async Task Gameover()
         {
-            SaveScore();
+            //SaveScore();
             DisableBoard();
             GameOverLabel();
             ExitButton();
