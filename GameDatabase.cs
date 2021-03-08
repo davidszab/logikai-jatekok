@@ -92,7 +92,7 @@ namespace logikai_jatekok
             File.WriteAllText("datas/DBcon.config", $"{server}\n{user}\n{password}\n{port}");
         }
 
-        ///executes a nonquery. It is separate async method so that more than one of it can run asynchronously
+        ///executes a nonquery
         private void DoNonQuery(string command)
         {
             Conn.Open();
@@ -157,6 +157,10 @@ namespace logikai_jatekok
             DoNonQuery($"INSERT INTO player(name) VALUES('{player}');");
         }
 
+        /// <summary>
+        /// Get all the player names from the database
+        /// </summary>
+        /// <returns>A list which contains the names</returns>
         public List<string> GetPlayers()
         {
             List<string> back = new List<string>();
