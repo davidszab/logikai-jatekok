@@ -34,8 +34,16 @@ namespace logikai_jatekok
             Conn = new MySqlConnection($"server = {server}; user = {user}; port = {port}; password = {password};");
         }
 
+        public void ConnectToDatabase()
+        {
+            GetConnectionDatas();
+
+            //connect to database
+            DoNonQuery("USE logicgames;");
+        }
+
         ///creates the LogicGames database and the tables with the values needed
-        public void SetUpDatabase()
+        public void ConnectAndSetUpNewDB()
         {
             GetConnectionDatas();
 

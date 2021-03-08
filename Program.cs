@@ -22,8 +22,12 @@ namespace logikai_jatekok
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (!database.ConfigFileExists) database.CreateConfigFile("localhost", "root", "3306", "");
-            database.SetUpDatabase();
+            if (!database.ConfigFileExists)
+            {
+                database.CreateConfigFile("localhost", "root", "3306", "");
+                database.ConnectAndSetUpNewDB();
+            }
+            else database.ConnectToDatabase();
 
             database.AddPlayer("one");
             database.AddPlayer("as");
