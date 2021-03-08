@@ -34,6 +34,9 @@ namespace logikai_jatekok
             Conn = new MySqlConnection($"server = {server}; user = {user}; port = {port}; password = {password};");
         }
 
+        /// <summary>
+        /// Connects to the database so that actions can be made with it
+        /// </summary>
         public void ConnectToDatabase()
         {
             GetConnectionDatas();
@@ -42,7 +45,9 @@ namespace logikai_jatekok
             DoNonQuery("USE logicgames;");
         }
 
-        ///creates the LogicGames database and the tables with the values needed
+        /// <summary>
+        /// Connects then creates a new database with the tables and values needed
+        /// </summary>
         public void ConnectAndSetUpNewDB()
         {
             GetConnectionDatas();
@@ -74,7 +79,13 @@ namespace logikai_jatekok
         }
 
 
-
+        /// <summary>
+        /// Creates the config file containing the datas required for having a database connection
+        /// </summary>
+        /// <param name="server"></param>
+        /// <param name="user"></param>
+        /// <param name="port"></param>
+        /// <param name="password"></param>
         public void CreateConfigFile(string server, string user, string port, string password)
         {
             Directory.CreateDirectory("datas");
@@ -94,7 +105,7 @@ namespace logikai_jatekok
         /// Executes a query and returns back the results
         /// </summary>
         /// <param name="command">SQL command</param>
-        /// <returns>List of objects which contains the results of the query</returns>
+        /// <returns>A list in which every row form the query is a list of object</returns>
         public List<List<object>> Query(string command)
         {
             Conn.Open();
