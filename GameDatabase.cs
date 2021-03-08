@@ -67,9 +67,9 @@ namespace logikai_jatekok
             //insert into game table
             DoNonQuery
             (
-                "INSERT INTO game(name) VALUES('hangman');" +
-                "INSERT INTO game(name) VALUES('mastermind');" +
-                "INSERT INTO game(name) VALUES('minesweeper');"
+                "INSERT INTO game(name) VALUES('Akasztófa');" +
+                "INSERT INTO game(name) VALUES('Színözön');" +
+                "INSERT INTO game(name) VALUES('Aknakereső');"
             );
         }
 
