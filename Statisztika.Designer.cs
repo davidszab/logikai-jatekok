@@ -50,6 +50,7 @@ namespace logikai_jatekok
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.rBKepernyo = new System.Windows.Forms.RadioButton();
             this.rBHtml = new System.Windows.Forms.RadioButton();
+            this.rBCSV = new System.Windows.Forms.RadioButton();
             this.btnStart = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
@@ -86,12 +87,10 @@ namespace logikai_jatekok
             // rBJatek
             // 
             this.rBJatek.AutoSize = true;
-            this.rBJatek.Checked = true;
             this.rBJatek.Location = new System.Drawing.Point(3, 3);
             this.rBJatek.Name = "rBJatek";
             this.rBJatek.Size = new System.Drawing.Size(63, 21);
             this.rBJatek.TabIndex = 1;
-            this.rBJatek.TabStop = true;
             this.rBJatek.Text = "Játék";
             this.rBJatek.UseVisualStyleBackColor = true;
             this.rBJatek.CheckedChanged += new System.EventHandler(this.handleLekerdezesAlapChange);
@@ -148,12 +147,10 @@ namespace logikai_jatekok
             // rBOsszes
             // 
             this.rBOsszes.AutoSize = true;
-            this.rBOsszes.Checked = true;
             this.rBOsszes.Location = new System.Drawing.Point(3, 3);
             this.rBOsszes.Name = "rBOsszes";
             this.rBOsszes.Size = new System.Drawing.Size(144, 21);
             this.rBOsszes.TabIndex = 0;
-            this.rBOsszes.TabStop = true;
             this.rBOsszes.Text = "Összes bejegyzés";
             this.rBOsszes.UseVisualStyleBackColor = true;
             this.rBOsszes.CheckedChanged += new System.EventHandler(this.handleSzuresChange);
@@ -259,20 +256,19 @@ namespace logikai_jatekok
             // 
             this.flowLayoutPanel4.Controls.Add(this.rBKepernyo);
             this.flowLayoutPanel4.Controls.Add(this.rBHtml);
+            this.flowLayoutPanel4.Controls.Add(this.rBCSV);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 20);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(242, 30);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(370, 30);
             this.flowLayoutPanel4.TabIndex = 1;
             // 
             // rBKepernyo
             // 
             this.rBKepernyo.AutoSize = true;
-            this.rBKepernyo.Checked = true;
             this.rBKepernyo.Location = new System.Drawing.Point(3, 3);
             this.rBKepernyo.Name = "rBKepernyo";
             this.rBKepernyo.Size = new System.Drawing.Size(90, 21);
             this.rBKepernyo.TabIndex = 1;
-            this.rBKepernyo.TabStop = true;
             this.rBKepernyo.Text = "Képernyő";
             this.rBKepernyo.UseVisualStyleBackColor = true;
             this.rBKepernyo.CheckedChanged += new System.EventHandler(this.handleKimenetChange);
@@ -282,11 +278,23 @@ namespace logikai_jatekok
             this.rBHtml.AutoSize = true;
             this.rBHtml.Location = new System.Drawing.Point(99, 3);
             this.rBHtml.Name = "rBHtml";
-            this.rBHtml.Size = new System.Drawing.Size(95, 21);
+            this.rBHtml.Size = new System.Drawing.Size(128, 21);
             this.rBHtml.TabIndex = 0;
-            this.rBHtml.Text = "Fájl (.html)";
+            this.rBHtml.Text = "Weboldal(.html)";
             this.rBHtml.UseVisualStyleBackColor = true;
             this.rBHtml.CheckedChanged += new System.EventHandler(this.handleKimenetChange);
+            // 
+            // rBCSV
+            // 
+            this.rBCSV.AutoSize = true;
+            this.rBCSV.Location = new System.Drawing.Point(233, 3);
+            this.rBCSV.Name = "rBCSV";
+            this.rBCSV.Size = new System.Drawing.Size(123, 21);
+            this.rBCSV.TabIndex = 2;
+            this.rBCSV.TabStop = true;
+            this.rBCSV.Text = "Táblázat (.csv)";
+            this.rBCSV.UseVisualStyleBackColor = true;
+            this.rBCSV.CheckedChanged += new System.EventHandler(this.handleKimenetChange);
             // 
             // btnStart
             // 
@@ -296,11 +304,14 @@ namespace logikai_jatekok
             this.btnStart.TabIndex = 10;
             this.btnStart.Text = "Lekérdezés!";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(18, 339);
             this.dataGridView1.Name = "dataGridView1";
@@ -366,5 +377,6 @@ namespace logikai_jatekok
         private System.Windows.Forms.RadioButton rBHtml;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.RadioButton rBCSV;
     }
 }

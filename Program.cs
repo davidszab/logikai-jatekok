@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace logikai_jatekok
@@ -9,7 +6,7 @@ namespace logikai_jatekok
     static class Program
     {
         static public string player;
-        static public Windows windowIndex = Windows.MainWindow;
+        static public Windows windowIndex = Windows.StatisticsWindow;
         static public GameDatabase database = new GameDatabase();
         static public bool runProgram = true;
 
@@ -21,6 +18,12 @@ namespace logikai_jatekok
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            if (!database.ConfigFileExists)
+            {
+                database.CreateConfigFile("localhost", "root", "3306", "");
+                database.ConnectAndSetUpNewDB();
+            }
+            else database.ConnectToDatabase();
             do
             {
                 switch (windowIndex)
@@ -48,7 +51,7 @@ namespace logikai_jatekok
                         break;
 
                     case Windows.StatisticsWindow:
-                        //Application.Run(new StatisticsForm());
+                        Application.Run(new Statisztika());
                         windowIndex = Windows.MainWindow;
                         break;
 
