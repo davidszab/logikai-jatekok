@@ -179,5 +179,57 @@ namespace logikai_jatekok.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ködlámpa
+        ///faág
+        ///éjjeliszekrény
+        ///gondolatolvasás
+        ///esőkabát
+        ///túristajelzés
+        ///madártoll
+        ///téliálom
+        ///fenyőillat
+        ///kenyérpirító
+        ///családfa
+        ///kutatócsoport
+        ///befőttesüveg
+        ///villámcsapás
+        ///elnökválasztás
+        ///vízipóló
+        ///aranyeső
+        ///gumilabda
+        ///madártej
+        ///paprikajancsi
+        ///tőkehal
+        ///dobverő
+        ///fűszál
+        ///csínytevő
+        ///konyhanyelv
+        ///közellenség
+        ///tejszínhab
+        ///mestermű
+        ///csavarhúzó
+        ///lakat
+        ///satufék
+        ///gondolatolvasó
+        ///gyerekzár
+        ///ruháskosár
+        ///bakkecske
+        ///gyapjúszőnyeg
+        ///babaágy
+        ///selyemhernyó
+        ///almafa
+        ///borbély
+        ///tükörtojás
+        ///elemlámpa
+        ///pásztorkutya
+        ///széldzseki        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string szavak {
+            get {
+                return ResourceManager.GetString("szavak", resourceCulture);
+            }
+        }
     }
 }

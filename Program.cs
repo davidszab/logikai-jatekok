@@ -5,8 +5,8 @@ namespace logikai_jatekok
 {
     static class Program
     {
-        static public string player = "one";
-        static public Windows windowIndex = Windows.MinesweeperWindow;
+        static public string player;
+        static public Windows windowIndex = Windows.MainWindow;
         static public GameDatabase database = new GameDatabase();
         static public bool runProgram = true;
 
@@ -24,7 +24,6 @@ namespace logikai_jatekok
                 database.ConnectAndSetUpNewDB();
             }
             else database.ConnectToDatabase();
-
             do
             {
                 switch (windowIndex)

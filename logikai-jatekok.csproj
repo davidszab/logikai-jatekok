@@ -177,5 +177,11 @@
   <ItemGroup>
     <None Include="Resources\flag.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\szavak.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\szavak.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
