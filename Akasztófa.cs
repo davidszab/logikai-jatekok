@@ -229,16 +229,8 @@ namespace logikai_jatekok
         }
         private void b_ujjatek_Click(object sender, EventArgs e)
         {
-            flp_buttons.Controls.Clear();
-            l_info.Text = " - ";
-            tb_rosszvalaszok.Clear();
-            flp_buttons.Enabled = true;
-            HangStateSize = HangState.Jobbláb;
-            AktHangState = HangState.Üres;
-            this.Invalidate();
-            SzóKiválaszt();
-            GombHozzáad();
-            LabelsHozzáad();
+            Program.windowIndex = Windows.HangmanWindow;
+            this.Close();
         }
         private void b_kilepes_Click(object sender, EventArgs e)
         {

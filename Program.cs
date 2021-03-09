@@ -18,20 +18,13 @@ namespace logikai_jatekok
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (!database.ConfigFileExists)
-            {
-                database.CreateConfigFile("localhost", "root", "3306", "");
-                database.ConnectAndSetUpNewDB();
-            }
-            else database.ConnectToDatabase();
             do
             {
                 switch (windowIndex)
                 {
                     case Windows.MainWindow:
                         windowIndex = Windows.CloseWindows;
-                        //Application.Run(new MainMenuForm()); 
-                        //ha a felhasznalo valaszt jatekot, a valasztott index-re csereli a windowsIndexet
+                        Application.Run(new Főmenü()); 
                         break;
 
                     case Windows.HangmanWindow:
