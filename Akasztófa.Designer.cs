@@ -158,6 +158,7 @@
             this.Controls.Add(this.flp_word);
             this.Name = "Akasztófa";
             this.Text = "Akasztófa";
+            this.Load += new System.EventHandler(this.Akasztófa_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

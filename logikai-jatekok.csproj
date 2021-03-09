@@ -63,6 +63,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Főmenü.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Főmenü.Designer.cs">
+      <DependentUpon>Főmenü.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameDatabase.cs" />
     <Compile Include="MinesweeperForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     <Compile Include="Windows.cs" />
     <EmbeddedResource Include="Akasztófa.resx">
       <DependentUpon>Akasztófa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Főmenü.resx">
+      <DependentUpon>Főmenü.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flag.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\szavak.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\szavak.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
