@@ -46,26 +46,55 @@ namespace logikai_jatekok
 
         private void b_aknakereso_Click(object sender, EventArgs e)
         {
-            Program.windowIndex = Windows.MinesweeperWindow;
-            this.Close();
+            if (Program.player == null || Program.player=="")
+            {
+                MessageBox.Show("Írj be vagy válassz ki egy nevet!");
+            }
+            else
+            {
+                Program.windowIndex = Windows.MinesweeperWindow;
+                this.Close();
+            }
         }
 
         private void b_mastermind_Click(object sender, EventArgs e)
         {
-            Program.windowIndex = Windows.MastermindWindow;
-            this.Close();
+            if(Program.player== null || Program.player == "")
+            {
+                MessageBox.Show("Írj be vagy válassz ki egy nevet!");
+            }
+            else
+            {
+                Program.windowIndex = Windows.MastermindWindow;
+                this.Close();
+            }
+
         }
 
         private void b_akasztofa_Click(object sender, EventArgs e)
         {
-            Program.windowIndex = Windows.HangmanWindow;
-            this.Close();
+            if (Program.player == null || Program.player == "")
+            {
+                MessageBox.Show("Írj be vagy válassz ki egy nevet!");
+            }
+            else
+            {
+                Program.windowIndex = Windows.HangmanWindow;
+                this.Close();
+            }
         }
 
         private void b_statisztika_Click(object sender, EventArgs e)
         {
-            Program.windowIndex = Windows.StatisticsWindow;
-            this.Close();
+            if(Program.player== null || Program.player == "")
+            {
+                MessageBox.Show("Írj be vagy válassz ki egy nevet!");
+            }
+            else
+            {
+                Program.windowIndex = Windows.StatisticsWindow;
+                this.Close();
+            }
         }
 
         private void b_nevmentes_Click(object sender, EventArgs e)
@@ -79,7 +108,11 @@ namespace logikai_jatekok
                 }
                 Program.player = jatekos;
             }
-            else MessageBox.Show("Válassz ki vagy írj be egy nevet!");
+            else
+            {
+                Program.player = null;
+                MessageBox.Show("Válassz ki vagy írj be egy nevet!");
+            }
         }
     }
 }
