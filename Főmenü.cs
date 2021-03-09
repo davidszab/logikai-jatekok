@@ -70,12 +70,16 @@ namespace logikai_jatekok
 
         private void b_nevmentes_Click(object sender, EventArgs e)
         {
-            string jatekos = cb_jatekosneve.Text;
-            if (!cb_jatekosneve.Items.Contains(jatekos))
+            if (cb_jatekosneve.Text != null && cb_jatekosneve.Text != "")
             {
-                Program.database.AddPlayer(jatekos);
+                string jatekos = cb_jatekosneve.Text;
+                if (!cb_jatekosneve.Items.Contains(jatekos))
+                {
+                    Program.database.AddPlayer(jatekos);
+                }
+                Program.player = jatekos;
             }
-            Program.player = jatekos;
+            else MessageBox.Show("Válassz ki vagy írj be egy nevet!");
         }
     }
 }

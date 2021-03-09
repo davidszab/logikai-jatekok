@@ -156,6 +156,10 @@
             this.Controls.Add(this.flp_buttons);
             this.Controls.Add(this.gb_kitalalndo);
             this.Controls.Add(this.flp_word);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Akasztófa";
             this.Text = "Akasztófa";
             this.Load += new System.EventHandler(this.Akasztófa_Load);
