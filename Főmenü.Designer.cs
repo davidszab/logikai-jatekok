@@ -219,9 +219,10 @@
             // 
             // b_nevmentes
             // 
-            this.b_nevmentes.Location = new System.Drawing.Point(496, 166);
+            this.b_nevmentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b_nevmentes.Location = new System.Drawing.Point(496, 165);
             this.b_nevmentes.Name = "b_nevmentes";
-            this.b_nevmentes.Size = new System.Drawing.Size(75, 23);
+            this.b_nevmentes.Size = new System.Drawing.Size(78, 24);
             this.b_nevmentes.TabIndex = 17;
             this.b_nevmentes.Text = "Mentés";
             this.b_nevmentes.UseVisualStyleBackColor = true;
