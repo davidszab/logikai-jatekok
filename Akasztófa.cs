@@ -237,10 +237,5 @@ namespace logikai_jatekok
             szerepelt.Clear();
             this.Close();
         }
-
-        private void Akasztófa_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

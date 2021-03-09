@@ -162,7 +162,6 @@
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Akasztófa";
             this.Text = "Akasztófa";
-            this.Load += new System.EventHandler(this.Akasztófa_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
