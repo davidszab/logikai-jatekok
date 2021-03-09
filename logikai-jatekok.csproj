@@ -57,12 +57,6 @@
     <Compile Include="Akasztófa.Designer.cs">
       <DependentUpon>Akasztófa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Főmenü.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +88,9 @@
     <Compile Include="Windows.cs" />
     <EmbeddedResource Include="Akasztófa.resx">
       <DependentUpon>Akasztófa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mastermind.resx">
+      <DependentUpon>Mastermind.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Főmenü.resx">
       <DependentUpon>Főmenü.cs</DependentUpon>
