@@ -329,6 +329,9 @@ namespace logikai_jatekok
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.fLP_fo);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(780, 755);
+            this.MinimumSize = new System.Drawing.Size(780, 755);
             this.Name = "Statisztika";
             this.Text = "Statisztika";
             this.flowLayoutPanel1.ResumeLayout(false);

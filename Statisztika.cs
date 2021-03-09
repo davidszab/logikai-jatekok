@@ -58,7 +58,8 @@ namespace logikai_jatekok
                     {
                         cBCel.Items.Add(item);
                     }
-                    cBCel.SelectedIndex = 0;
+                    if(jatekosok.Count > 0)
+                        cBCel.SelectedIndex = 0;
                     break;
             }
         }
@@ -148,7 +149,7 @@ namespace logikai_jatekok
             for (int i = 0; i < eredmeny.Count; i++)
             {
                 List<object> sor = eredmeny[i];
-                htmlString += $"<tr><td>{i + 1}</td>";
+                htmlString += $"<tr><td>{i + 1}.</td>";
                 foreach (var item in sor)
                 {
                     htmlString += $"<td>{item}</td>";
@@ -187,7 +188,9 @@ namespace logikai_jatekok
             if (sql.Length > 0)
             {
                 List<List<object>> eredmeny = Program.database.Query(sql);
-                if (kimenet == Kimenet.Kepernyo)
+                if (eredmeny.Count == 0)
+                    MessageBox.Show("A lekérdezésre nem érkezett adat!", "Lekérdezés", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else if (kimenet == Kimenet.Kepernyo)
                     kimenetKepernyo(eredmeny);
                 else if (kimenet == Kimenet.HTML)
                     kimenetHTML(eredmeny);
@@ -230,17 +233,16 @@ namespace logikai_jatekok
             }
             return "";
         }
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            lekerdezes();
+        }
         public Statisztika()
         {
             InitializeComponent();
             rBJatek.Checked = true;
             rBOsszes.Checked = true;
             rBKepernyo.Checked = true;
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            lekerdezes();
         }
     }
 
