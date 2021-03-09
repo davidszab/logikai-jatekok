@@ -213,13 +213,6 @@ namespace logikai_jatekok
                 MessageBox.Show($"Játék vége! A kód: {kodString}");
             }
         }
-        public Mastermind()
-        {
-            InitializeComponent();
-            szinTablazat();
-            kodGeneralas();
-        }
-
         private void btnRejtettVissza_Click(object sender, EventArgs e)
         {
             foreach (Szin item in szinek)
@@ -243,6 +236,18 @@ namespace logikai_jatekok
             int pont = 100;
             pont += (10 - probalkozasok.Count) * 10;
             return pont;
+        }
+
+        private void btn_ujJatek_Click(object sender, EventArgs e)
+        {
+            Program.windowIndex = Windows.MastermindWindow;
+            this.Close();
+        }
+        public Mastermind()
+        {
+            InitializeComponent();
+            szinTablazat();
+            kodGeneralas();
         }
     }
     class Szin

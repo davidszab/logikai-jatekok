@@ -37,6 +37,7 @@
             this.btnTorles = new System.Windows.Forms.Button();
             this.fLP_ertekeles = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSugo = new System.Windows.Forms.Button();
+            this.btn_ujJatek = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -90,7 +91,7 @@
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
             this.tLP_szinek.Location = new System.Drawing.Point(672, 62);
             this.tLP_szinek.Name = "tLP_szinek";
             this.tLP_szinek.RowCount = 1;
@@ -146,11 +147,22 @@
             this.btnSugo.UseVisualStyleBackColor = true;
             this.btnSugo.Click += new System.EventHandler(this.btnSugo_Click);
             // 
+            // btn_ujJatek
+            // 
+            this.btn_ujJatek.Location = new System.Drawing.Point(101, 608);
+            this.btn_ujJatek.Name = "btn_ujJatek";
+            this.btn_ujJatek.Size = new System.Drawing.Size(169, 23);
+            this.btn_ujJatek.TabIndex = 14;
+            this.btn_ujJatek.Text = "Új játék";
+            this.btn_ujJatek.UseVisualStyleBackColor = true;
+            this.btn_ujJatek.Click += new System.EventHandler(this.btn_ujJatek_Click);
+            // 
             // Mastermind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 643);
+            this.Controls.Add(this.btn_ujJatek);
             this.Controls.Add(this.btnSugo);
             this.Controls.Add(this.fLP_ertekeles);
             this.Controls.Add(this.btnTorles);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.Button btnTorles;
         private System.Windows.Forms.FlowLayoutPanel fLP_ertekeles;
         private System.Windows.Forms.Button btnSugo;
+        private System.Windows.Forms.Button btn_ujJatek;
     }
 }

@@ -73,7 +73,7 @@ namespace logikai_jatekok
             DoNonQuery
             (
                 "INSERT INTO game(name) VALUES('Akasztófa');" +
-                "INSERT INTO game(name) VALUES('Színözön');" +
+                "INSERT INTO game(name) VALUES('Mastermind');" +
                 "INSERT INTO game(name) VALUES('Aknakereső');"
             );
         }

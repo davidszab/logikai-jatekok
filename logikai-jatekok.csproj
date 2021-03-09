@@ -57,12 +57,6 @@
     <Compile Include="Akasztófa.Designer.cs">
       <DependentUpon>Akasztófa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Főmenü.cs">
       <SubType>Form</SubType>
     </Compile>
