@@ -5,8 +5,8 @@ namespace logikai_jatekok
 {
     static class Program
     {
-        static public string player;
-        static public Windows windowIndex = Windows.StatisticsWindow;
+        static public string player = "one";
+        static public Windows windowIndex = Windows.MinesweeperWindow;
         static public GameDatabase database = new GameDatabase();
         static public bool runProgram = true;
 
@@ -24,35 +24,35 @@ namespace logikai_jatekok
                 database.ConnectAndSetUpNewDB();
             }
             else database.ConnectToDatabase();
+
             do
             {
                 switch (windowIndex)
                 {
                     case Windows.MainWindow:
-                        //Application.Run(new MainMenuForm()); 
-                        //MainMenuForm belepesnel Windows.CloseWindows-ra allitja a windowsIndex-et
-                        //ha a felhasznalo valaszt jatekot akkor peddig a valasztott index-re csereli
                         windowIndex = Windows.CloseWindows;
+                        //Application.Run(new MainMenuForm()); 
+                        //ha a felhasznalo valaszt jatekot, a valasztott index-re csereli a windowsIndexet
                         break;
 
                     case Windows.HangmanWindow:
-                        Application.Run(new Akasztófa());
                         windowIndex = Windows.MainWindow;
+                        Application.Run(new Akasztófa());
                         break;
 
                     case Windows.MastermindWindow:
-                        Application.Run(new Mastermind());
                         windowIndex = Windows.MainWindow;
+                        Application.Run(new Mastermind());
                         break;
 
                     case Windows.MinesweeperWindow:
-                        Application.Run(new MinesweeperForm());
                         windowIndex = Windows.MainWindow;
+                        Application.Run(new MinesweeperForm());
                         break;
 
                     case Windows.StatisticsWindow:
-                        Application.Run(new Statisztika());
                         windowIndex = Windows.MainWindow;
+                        Application.Run(new Statisztika());
                         break;
 
                     case Windows.CloseWindows:

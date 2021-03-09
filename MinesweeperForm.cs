@@ -14,8 +14,8 @@ namespace logikai_jatekok
     public partial class MinesweeperForm : Form
     {
         static int width = 18; static int height = 14;
-        static int mineChance = 4; // chance-> 1 : minechance (def. 3)
-        static int nonMineRadius = 4;
+        int mineChance = 5; // chance-> 1 : minechance (def. 4)
+        int nonMineRadius = 3; //def 4
         int revealedOnDefault = 0;
         int score = 0;
 
@@ -30,7 +30,6 @@ namespace logikai_jatekok
 
         bool isFirstClick = true;
         bool isGameOver = false;
-        public bool playagain = false;
 
         public MinesweeperForm()
         {
@@ -105,26 +104,23 @@ namespace logikai_jatekok
             switch (args.Button)
             {
                 case MouseButtons.Left:
-                    if (!fields[x, y].isFlaged)
+                    if (isFirstClick)
                     {
-                        if (isFirstClick) GenerateMines(x, y);
-
+                        GenerateMines(x, y);
                         DiscoverNeighbours(x, y);
-
-                        if (isFirstClick)
-                        {
-                            CountDefaultRevealedFields();
-                            isFirstClick = false;
-                        }
+                        CountDefaultRevealedFields();
+                        isFirstClick = false;
                     }
+                    else if (!fields[x, y].isFlaged) DiscoverNeighbours(x, y);
                     else UnFlagField(x, y);
+
                     ShowScore();
                     break;
 
                 case MouseButtons.Right:
-                    if (!isFirstClick)
+                    if (!isFirstClick && !fields[x, y].isRevealed)
                     {
-                        if (!fields[x, y].isFlaged) FlagNonRevealedField(x, y);
+                        if (!fields[x, y].isFlaged) FlagField(x, y);
                         else UnFlagField(x, y);
                     }
                     break;
@@ -144,30 +140,27 @@ namespace logikai_jatekok
 
         private void ShowScore()
         {
-            int revealeds = 0;
+            int currentRevealed = 0;
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    if (fields[x, y].isRevealed && fields[x, y].minesNearby != -1) revealeds++;
+                    if (fields[x, y].isRevealed && fields[x, y].minesNearby != -1) currentRevealed++;
                 }
             }
-            score = revealeds - revealedOnDefault;
+            score = currentRevealed - revealedOnDefault;
             scoreLb.Text = $" Pontok: {score}p";
         }
         
-        private void FlagNonRevealedField(int x, int y)
+        private void FlagField(int x, int y)
         {
-            if (!fields[x, y].isRevealed)
-            {
-                fields[x, y].panel.BackColor = Color.Transparent;
+            fields[x, y].panel.BackColor = Color.Transparent;
 
-                if ((x + y) % 2 == 0) fields[x, y].panel.BackgroundImage = Properties.Resources.flag0;
-                else fields[x, y].panel.BackgroundImage = Properties.Resources.flag1;
+            if ((x + y) % 2 == 0) fields[x, y].panel.BackgroundImage = Properties.Resources.flag0;
+            else fields[x, y].panel.BackgroundImage = Properties.Resources.flag1;
 
-                fields[x, y].panel.BackgroundImageLayout = ImageLayout.Stretch;
-                fields[x, y].isFlaged = true;
-            }
+            fields[x, y].panel.BackgroundImageLayout = ImageLayout.Stretch;
+            fields[x, y].isFlaged = true;
         }
 
         private void UnFlagField(int x, int y)
@@ -182,9 +175,10 @@ namespace logikai_jatekok
 
         private void DiscoverNeighbours(int x, int y)
         {
-            if(fields[x, y].minesNearby == 0 && !fields[x, y].isFlaged)
+            if(fields[x, y].minesNearby == 0)
             {
                 MakeFieldBrown(x, y);
+
                 fields[x, y].isRevealed = true;
                 fields[x, y].panel.Controls[0].Cursor = Cursors.Arrow;
 
@@ -196,7 +190,7 @@ namespace logikai_jatekok
                         {
                             if (!fields[i + x, j + y].isRevealed)
                             {
-                                if (fields[i + x, j + y].minesNearby == 0) DiscoverNeighbours(i + x, j + y);
+                                if (fields[i + x, j + y].minesNearby == 0 && !fields[i + x, j + y].isFlaged) DiscoverNeighbours(i + x, j + y);
                                 else RevealNotNullField(i + x, j + y);
                             }
                         }
@@ -205,8 +199,7 @@ namespace logikai_jatekok
             }
             else if (fields[x, y].minesNearby == -1) //if fields[x, y] is a Mine
             {
-                RevealMine(x, y);
-                Gameover();
+                Gameover(x,y);
             }
             else //fields[x, y].minesNearby != 0
             {
@@ -229,32 +222,36 @@ namespace logikai_jatekok
                 fields[x, y].isRevealed = true;
                 fields[x, y].panel.Controls[0].Cursor = Cursors.Arrow;
 
+                Color fieldColor = new Color();
+
                 switch (fields[x, y].minesNearby)
                 {
                     case 1:
-                        fields[x, y].panel.Controls[0].ForeColor = Color.Blue;
+                        fieldColor = Color.Blue;
                         break;
 
                     case 2:
-                        fields[x, y].panel.Controls[0].ForeColor = Color.Green;
+                        fieldColor = Color.Green;
                         break;
 
                     case 3:
-                        fields[x, y].panel.Controls[0].ForeColor = Color.Red;
+                        fieldColor = Color.Red;
                         break;
 
                     case 4:
-                        fields[x, y].panel.Controls[0].ForeColor = Color.Purple;
+                        fieldColor = Color.Purple;
                         break;
 
                     case 5:
-                        fields[x, y].panel.Controls[0].ForeColor = Color.Pink;
+                        fieldColor = Color.Pink;
                         break;
 
                     default:
-                        fields[x, y].panel.Controls[0].ForeColor = Color.Yellow;
+                        fieldColor = Color.Yellow;
                         break;
                 }
+
+                fields[x, y].panel.Controls[0].ForeColor = fieldColor;
                 fields[x, y].panel.Controls[0].Text = $"{fields[x, y].minesNearby}";
             }
         }
@@ -264,7 +261,6 @@ namespace logikai_jatekok
         private async Task ExplodeMines()
         {
             List<Field> mines = new List<Field>();
-
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < height; j++)
@@ -372,11 +368,7 @@ namespace logikai_jatekok
                         if(Math.Sqrt(Math.Pow(x-i,2)+ Math.Pow(y - j, 2)) > nonMineRadius) fields[i, j].minesNearby = -1;
                     }
 
-                    if (fields[i, j].minesNearby == -1)
-                    {
-                        //fields[i, j].panel.BackColor = Color.Red;
-                        IncreaseNeighbours(i, j);
-                    }
+                    if (fields[i, j].minesNearby == -1) IncreaseNeighbours(i, j);
                 }
             }
         }
@@ -397,15 +389,18 @@ namespace logikai_jatekok
 
 
 
-        private async Task Gameover()
+        private async Task Gameover(int x, int y)
         {
-            //SaveScore();
+            isGameOver = true;  // stops the timer
+            RevealMine(x, y);
+
+            SaveScore();
             DisableBoard();
             GameOverLabel();
+            
             ExitButton();
             PlayAgainButton();
 
-            isGameOver = true;
             ExplodeMines();
         }
 
@@ -469,7 +464,8 @@ namespace logikai_jatekok
 
         private void PlayAgainButton_Click(object sender, EventArgs args)
         {
-            playagain = true;
+            Program.windowIndex = Windows.MinesweeperWindow;
+
             this.Close();
         }
     }
