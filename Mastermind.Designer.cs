@@ -90,7 +90,7 @@
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tLP_szinek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
             this.tLP_szinek.Location = new System.Drawing.Point(672, 62);
             this.tLP_szinek.Name = "tLP_szinek";
             this.tLP_szinek.RowCount = 1;
@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 641);
+            this.ClientSize = new System.Drawing.Size(1032, 643);
             this.Controls.Add(this.btnSugo);
             this.Controls.Add(this.fLP_ertekeles);
             this.Controls.Add(this.btnTorles);
@@ -161,6 +161,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1050, 690);
+            this.MinimumSize = new System.Drawing.Size(1050, 690);
             this.Name = "Mastermind";
             this.Text = "Mastermind";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Mastermind_KeyPress);

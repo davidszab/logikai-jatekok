@@ -189,7 +189,7 @@ namespace logikai_jatekok
 
             if (probalkozasok.Count < 10 && jatekban)
                 probalkozasok.Add(new List<Szin>());
-            else
+            else if(jatekban)
                 jatekVege(false);
         }
         private void jatekVege(bool isGyozelem)
@@ -197,7 +197,9 @@ namespace logikai_jatekok
             jatekban = false;
             if (isGyozelem)
             {
-                MessageBox.Show("Gratulálok, teljesítetted a játékot!");
+                int pontok = pontozas();
+                Program.database.SaveData(Program.player, GameTypes.mastermind, pontok);
+                MessageBox.Show($"Gratulálok, teljesítetted a játékot, {pontok} pontot kaptál!");
             }
             else
             {
@@ -227,22 +229,20 @@ namespace logikai_jatekok
             lbRejtett.Text = "Elrejtett színek száma: 0 db";
             szinTablazat();
         }
-
         private void btnTorles_Click(object sender, EventArgs e)
         {
             handleTorles();
         }
-
         private void btnSugo_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"Hogyan kell játszani?\n\nA játék lényege, hogy a játkosnak meg kell fejtenie a(z) {kodHossz} színből álló kódot, a cél teljesítéséhez {probalkozasokDb} próbálkozás áll a rendelkezésére. A kód a jobb oldalon található lista elemeiből kerül kialakításra, minden szín csak egyetlen egyszer szerepelhet. A próbálkozás megadása után a program ellenőrzi azt, és az alábbi rendszer szerint értékeli azt:\n\nfekete golyó: A próbálkozás egyik színe helyes, és a pozíciója is rendben van.\n\nfehér golyó: A próbálkozás egyik színe helyes, azonban rossz pozícióban van.\n\nEzek alapján a játék győzelemmel zárul, ha a játékos a bevitt próbálkozásra négy fekete golyót kap válaszul.\n\nA próbálkozás bevitelére két lehetősége van a felhasználónak; rákattinthat a jobb oldalt található színlistában lévő golyóra, vagy lenyomhatja a színlista harmadik oszlopában meghatározott billentyűt is. Amennyiben a felhasználó tévedésből rossz színt táplál be, akkor lehetősége van törölni azt a tábla alatt található „Visszavonás” gomb vagy a Backspace billentyű megnyomásával. Ha a felhasználó biztos abban, hogy egy szín nem szerepel a kódban, akkor a színlista utolsó oszlopában található jelölőnégyzet segítségével elrejtheti azt. Ez automatikusan is megtörténik, ha a felhasználó meghatározta a kódban szereplő színeket, azonban sorrendjüket még nem.", "Súgó", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private int pontozas(bool nyertE)
+        private int pontozas()
         {
             //Képlet: 100 + (MaxProb - Prob) * 10
             int pont = 100;
             pont += (10 - probalkozasok.Count) * 10;
-            return nyertE ? pont : 0;
+            return pont;
         }
     }
     class Szin
